@@ -1,0 +1,124 @@
+﻿@model ProjektRaport.Models.Changes
+
+
+<h2>Index</h2>
+
+
+<h2>Changes</h2>
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayName("Imię")
+        </th>
+        <th>
+            @Html.DisplayName("Nazwisko")
+        </th>
+        <th>
+            @Html.DisplayName("Imię")
+        </th>
+        <th>
+            @Html.DisplayName("Nazwisko")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeRange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Workers.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Workers.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Workers1.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Workers1.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.TimeRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Date)
+        </td>
+
+    </tr>
+
+
+</table>
+
+
+<h2>Raporty</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Report.First().IncidentNumber)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Report.First().ContentIncident)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Report.First().ActionToken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Report.First().DeviceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Report.First().DeviceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Report.First().ActionTime)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        if (Model.Report.Any())
+        {
+            foreach (var item in Model.Report)
+            {
+    <tr>
+        @*// r.IncidentNumber, r.ContentIncident, r.ActionToken,r.DeviceNumber,r.DeviceName,r.ActionTime,//*@
+
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentIncident)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionToken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+            }
+        }
+    }
+</table>
+
+
+@Html.ActionLink("Wroc","Index")

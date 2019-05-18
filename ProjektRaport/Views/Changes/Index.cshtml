@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjektRaport.Models.Changes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Pracownik 1: Imię")
+        </th>
+        <th>
+            @Html.DisplayName("Pracownik 1: Nazwisko")
+        </th>
+        <th>
+            @Html.DisplayName("Pracownik 2: Imię")
+        </th>
+        <th>
+            @Html.DisplayName("Pracownik 2: Nazwisko")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Workers.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Workers1.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Wybierz", "Changeview", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
